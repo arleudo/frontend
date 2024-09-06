@@ -7,6 +7,10 @@ export default {
   ],
   theme: {
   	extend: {
+		scale:{
+			'101': '1.01',
+			'102': '1.02',
+		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

@@ -14,6 +14,11 @@ export interface IUserInput {
     password: string;
 }
 
+export interface IUserLoginInput {
+    email: string;
+    password: string;
+}
+
 //-------------------------------- Pressions -----------------------------------//
 export interface IPression {
     id: string;

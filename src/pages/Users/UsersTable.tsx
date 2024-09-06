@@ -42,7 +42,7 @@ export function UsersTable() {
                 </TableHeader>
                 <TableBody>{
                     users.map(user =>
-                        <TableRow key={user.id} className="odd:bg-primary/10">
+                        <TableRow key={user.id} className="odd:bg-primary/10 hover:shadow-lg">
                             <TableCell>{user.name}</TableCell>
                             <TableCell>{user.email}</TableCell>
                             <TableCell>{user.password}</TableCell>

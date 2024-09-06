@@ -3,17 +3,22 @@ import { pressionStore } from "@/store";
 import axios from "axios";
 
 export class PressionService {
-    public list = async () => {
-        const { setPressions } = pressionStore.getState();
+    private url: string;
 
-        const pressions = (await axios.get("https://backend-2ymt.onrender.com/pression")).data;
+    constructor(){
+        this.url = import.meta.env.VITE_URL_BACK_END + "/pression";
+    }
+    public list = async () => {
+        const { setPressions } = pressionStore.getState();      
+
+        const pressions = (await axios.get(this.url)).data;      
         setPressions(pressions);
     }
 
     public create = async (pression: IPressionInput, toast: ({ }) => void) => {
         const { pressions, setPressions } = pressionStore.getState();
         try {
-            const ret = (await axios.post("https://backend-2ymt.onrender.com/pression", pression)).data as IPression;
+            const ret = (await axios.post(this.url, pression)).data as IPression;
             setPressions([...pressions, ret]);
             toast({
                 title: "Sucesso",
@@ -33,7 +38,7 @@ export class PressionService {
     public update = async (pression: IPression, toast: ({ }) => void) => {
         const { pressions, setPressions } = pressionStore.getState();
         try {
-            const ret = (await axios.put("https://backend-2ymt.onrender.com/pression", pression)).data as IPression;
+            const ret = (await axios.put(this.url, pression)).data as IPression;
             const index = pressions.findIndex((p: IPression) => p.id === pression.id);
 
             if (index !== -1) {
@@ -60,7 +65,7 @@ export class PressionService {
         const { removePression } = pressionStore.getState();
 
         try {
-            await axios.delete("https://backend-2ymt.onrender.com/pression/" + id);
+            await axios.delete(this.url + "/" + id);
             removePression(id);
             toast({
                 title: "Sucesso",
