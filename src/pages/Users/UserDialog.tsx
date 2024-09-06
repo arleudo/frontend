@@ -33,17 +33,17 @@ export function UserDialog() {
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
                     <Label>Nome</Label>
-                    <Input id="name" className="col-span-3" defaultValue={user.name} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    <Input id="name" className="col-span-3" defaultValue={user?.name || ""} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                         const name = e.target.value;
                         setUser({ ...user, name });
                     }} />
                     <Label>Email</Label>
-                    <Input type="email" id="email" className="col-span-3" defaultValue={user.email} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    <Input type="email" id="email" className="col-span-3" defaultValue={user?.email || ""} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                         const email = e.target.value;
                         setUser({ ...user, email });
                     }} />
                     <Label>Senha</Label>
-                    <Input type="password" id="password" className="col-span-3" defaultValue={user.password} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    <Input type="password" id="password" className="col-span-3" defaultValue={user?.password || ""} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                         const password = e.target.value;
                         setUser({ ...user, password });
                     }} />
