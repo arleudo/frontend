@@ -20,8 +20,12 @@ export function Login() {
     }
 
     useEffect(() => {
-        setValid(!!user.email && !!user.password);
-    }, [user.email, user.password]);
+        if (user) {
+            setValid(!!user.email && !!user.password);
+        } else {
+            setValid(false);
+        }
+    }, [user]);
 
     return (
         <>
