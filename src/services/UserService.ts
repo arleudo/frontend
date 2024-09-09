@@ -31,12 +31,12 @@ export class UserService {
     }
 
     public login = async (user: IUserLoginInput, toast: ({ }) => void) => {
-        const { setUser } = usersStore.getState();
+        const { setLoggedUser } = usersStore.getState();
         try {
             const url = import.meta.env.VITE_URL_BACK_END + "/user/login";
             const ret = (await axios.post(url, user)).data as IUser;
 
-            setUser(ret);
+            setLoggedUser(ret);
             toast({
                 title: "Sucesso",
                 description: "Login realizado com sucesso!",

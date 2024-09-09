@@ -19,7 +19,7 @@ export function Home() {
     const navigate = useNavigate();
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 mt-14">
             {cardContent.map((card) =>
                 <Card key={card.id} className="bg-transparent shadow-md rounded-lg p-6 h-full flex flex-col hover:shadow-xl transition-transform transform hover:scale-101 duration-75">
                     <CardHeader>

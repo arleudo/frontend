@@ -35,9 +35,11 @@ export interface IPressionInput {
 //-------------------------------- Stores -----------------------------------//
 export interface IUserStore {
     users: IUser[];
-    user: IUser;
+    user: IUser | null;
+    loggedUser: IUser | null;
     setUsers: (users: IUser[]) => void;
-    setUser: (user: IUser) => void;
+    setUser: (user: IUser | null) => void;
+    setLoggedUser: (user: IUser | null) => void;
     removeUser: (id: string) => void;
 }
 

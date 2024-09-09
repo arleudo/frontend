@@ -13,7 +13,7 @@ export function UserDialog() {
     const { toast } = useToast();
 
     const handleCreate = () => {
-        if (!user.id) {
+        if (!user?.id) {
             new UserService().create(user as IUserInput, toast);
         }
         else {
@@ -35,17 +35,17 @@ export function UserDialog() {
                     <Label>Nome</Label>
                     <Input id="name" className="col-span-3" defaultValue={user?.name || ""} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                         const name = e.target.value;
-                        setUser({ ...user, name });
+                        setUser({ ...user!, name });
                     }} />
                     <Label>Email</Label>
                     <Input type="email" id="email" className="col-span-3" defaultValue={user?.email || ""} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                         const email = e.target.value;
-                        setUser({ ...user, email });
+                        setUser({ ...user!, email });
                     }} />
                     <Label>Senha</Label>
                     <Input type="password" id="password" className="col-span-3" defaultValue={user?.password || ""} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                         const password = e.target.value;
-                        setUser({ ...user, password });
+                        setUser({ ...user!, password });
                     }} />
                 </div>
                 <DialogFooter>
